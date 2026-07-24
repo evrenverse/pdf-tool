@@ -197,7 +197,7 @@ make check
 
 The quality gate includes formatting, linting, mypy, branch coverage, package
 build, and the real CLI agent eval. CI additionally tests Python 3.12–3.14,
-Linux, macOS, Windows, Poppler, known vulnerabilities, CodeQL, and dependency
+Linux with and without Poppler, known vulnerabilities, CodeQL, and dependency
 changes.
 
 ## Project documentation

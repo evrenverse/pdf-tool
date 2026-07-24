@@ -12,6 +12,7 @@ import typer
 from pdf_tool.commands.common import (
     ensure_input_size,
     ensure_not_encrypted,
+    read_utf8,
     walk_field_chain,
 )
 from pdf_tool.commands.common import resolve_inherited as _resolve_inherited
@@ -417,7 +418,7 @@ def read(
             typer.echo("Error: --overlay requires both --image and --page", err=True)
             raise typer.Exit(code=1)
         try:
-            overlay_spec = json.loads(Path(overlay).read_text())
+            overlay_spec = json.loads(read_utf8(Path(overlay), "overlay file"))
         except (OSError, json.JSONDecodeError) as exc:
             typer.echo(f"Error: cannot read --overlay JSON: {exc}", err=True)
             raise typer.Exit(code=1)

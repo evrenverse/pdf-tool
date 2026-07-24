@@ -88,3 +88,13 @@ def test_create_missing_source(tmp_path):
     result = runner.invoke(app, ["create", str(out), str(tmp_path / "nope.md")])
     assert result.exit_code == 1
     assert "not found" in result.output.lower() or "error" in result.output.lower()
+
+
+def test_create_rejects_non_utf8_source(tmp_path):
+    """A legacy code-page file exits cleanly instead of raising UnicodeDecodeError."""
+    md = tmp_path / "cp1252.md"
+    md.write_bytes("# Größe\n\nGebühr 1,50 €.\n".encode("cp1252"))
+    result = runner.invoke(app, ["create", str(tmp_path / "out.pdf"), str(md)])
+    assert result.exit_code == 1
+    assert "not valid UTF-8" in result.output
+    assert not (tmp_path / "out.pdf").exists()

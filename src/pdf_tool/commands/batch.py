@@ -15,6 +15,7 @@ from pdf_tool.commands.common import (
     atomic_output,
     ensure_input_size,
     ensure_json_size,
+    read_utf8,
 )
 
 
@@ -116,7 +117,7 @@ def batch(
         if not ops_path.exists():
             typer.echo(f"Error: operations file not found: {operations}", err=True)
             raise typer.Exit(code=1)
-        raw = ops_path.read_text()
+        raw = read_utf8(ops_path, "operations file")
     ensure_json_size(raw)
 
     try:

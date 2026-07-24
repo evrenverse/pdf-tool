@@ -25,6 +25,19 @@ MAX_JSON_INPUT_BYTES = 10 * 1024 * 1024
 MAX_BATCH_ITEMS = 10_000
 
 
+def read_utf8(path: Path, kind: str) -> str:
+    """Read a text file, exiting cleanly when its bytes are not UTF-8.
+
+    A file saved in a legacy code page would otherwise surface a raw
+    UnicodeDecodeError traceback instead of a diagnostic on stderr.
+    """
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError as e:
+        typer.echo(f"Error: {kind} is not valid UTF-8: {path} ({e.reason})", err=True)
+        raise typer.Exit(code=1)
+
+
 def ensure_input_size(file: Path) -> None:
     """Reject oversized attacker-controlled PDF inputs before parsing."""
     try:
@@ -73,8 +86,8 @@ def atomic_output(path: str | Path) -> Iterator[Path]:
         yield tmp_path
         # Writers have closed the file when control returns. Flush the bytes to
         # disk before publishing the new name, and preserve existing mode bits.
-        # Windows rejects fsync on a read-only handle with EBADF, so open the
-        # file for writing even though only its flush is needed.
+        # Opened read-write because fsync on a read-only handle is not
+        # portable, even though only the flush is needed here.
         sync_fd = os.open(tmp_path, os.O_RDWR)
         try:
             os.fsync(sync_fd)

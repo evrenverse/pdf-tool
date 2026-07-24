@@ -215,6 +215,8 @@ def create(
     page_size: Annotated[str, typer.Option("--page-size", help="Page size: a4 or letter.")] = "a4",
 ) -> None:
     """Create a new PDF from Markdown content with an embedded font."""
+    from pdf_tool.commands.common import read_utf8
+
     if source == "-":
         md = sys.stdin.read()
     else:
@@ -222,7 +224,7 @@ def create(
         if not src_path.exists():
             typer.echo(f"Error: source file not found: {source}", err=True)
             raise typer.Exit(code=1)
-        md = src_path.read_text(encoding="utf-8")
+        md = read_utf8(src_path, "source file")
 
     if not md.strip():
         typer.echo("Error: source content is empty", err=True)

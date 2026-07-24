@@ -16,6 +16,7 @@ from pdf_tool.commands.common import (
     atomic_output,
     ensure_input_size,
     ensure_json_size,
+    read_utf8,
 )
 
 
@@ -240,7 +241,7 @@ def write(
         if not changes_path.exists():
             typer.echo(f"Error: changes file not found: {changes}", err=True)
             raise typer.Exit(code=1)
-        raw = changes_path.read_text()
+        raw = read_utf8(changes_path, "changes file")
     ensure_json_size(raw)
 
     try:
