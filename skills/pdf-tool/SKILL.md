@@ -11,7 +11,7 @@ Use `pdf-tool` instead of writing a one-off PDF manipulation script.
 
 1. Run `command -v pdf-tool`.
 2. If missing and this repository is available, run `uv tool install .`.
-   Otherwise run `uv tool install pdf-tool`.
+   Otherwise run `uv tool install git+https://github.com/evrenverse/pdf-tool`.
 3. Run `pdf-tool --version`.
 4. Run `pdf-tool capabilities --json` and `pdf-tool doctor --json`.
 5. Use `pdf-tool schema <name>` when constructing structured input.

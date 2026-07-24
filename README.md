@@ -3,8 +3,6 @@
 [![CI](https://github.com/evrenverse/pdf-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/evrenverse/pdf-tool/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/evrenverse/pdf-tool/actions/workflows/codeql.yml/badge.svg)](https://github.com/evrenverse/pdf-tool/actions/workflows/codeql.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/evrenverse/pdf-tool/badge)](https://scorecard.dev/viewer/?uri=github.com/evrenverse/pdf-tool)
-[![PyPI](https://img.shields.io/pypi/v/pdf-tool.svg)](https://pypi.org/project/pdf-tool/)
-[![Python](https://img.shields.io/pypi/pyversions/pdf-tool.svg)](https://pypi.org/project/pdf-tool/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 An agent-friendly CLI for inspecting, creating, filling, editing, splitting,
@@ -43,15 +41,12 @@ Copy this prompt:
 With [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv tool install pdf-tool
+uv tool install git+https://github.com/evrenverse/pdf-tool
 pdf-tool --version
 ```
 
-Directly from GitHub before the first PyPI release:
-
-```bash
-uv tool install git+https://github.com/evrenverse/pdf-tool
-```
+This tool is not published to PyPI. Install it from the repository, or from
+a wheel attached to a [release](https://github.com/evrenverse/pdf-tool/releases).
 
 From a clone:
 

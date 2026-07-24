@@ -3,7 +3,6 @@
 > Agent-friendly CLI for inspecting, creating, and editing PDF files.
 
 Repository: https://github.com/evrenverse/pdf-tool
-Package: https://pypi.org/project/pdf-tool/
 License: MIT
 Language: Python
 
@@ -23,7 +22,7 @@ Language: Python
 
 Install with:
 
-    uv tool install pdf-tool
+    uv tool install git+https://github.com/evrenverse/pdf-tool
 
 Discover exact syntax with:
 

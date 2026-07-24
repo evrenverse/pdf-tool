@@ -6,7 +6,7 @@
 | Operating systems | Linux |
 | Document format | PDF files supported by the locked parser stack |
 | Optional integration | Poppler for `read --image` |
-| Package installation | PyPI or a reviewed Git checkout through `uv tool` |
+| Package installation | Git checkout or release wheel through `uv tool` |
 
 CI tests all supported Python minors on Linux, including a job without the
 optional integration installed. The primary job installs Poppler and runs formatting, linting, mypy,

@@ -23,7 +23,7 @@ trusted but secret.
 | Secret exposure in process lists or logs | No passphrase CLI argument or batch field; hidden/file/env input |
 | Context flooding | Page, field, and search scoping with structured results |
 | Dependency compromise | Lockfile, Dependabot, dependency review, CodeQL, pip-audit, pinned Actions |
-| Release substitution | PyPI Trusted Publishing, checksums from registries, SPDX SBOM, Sigstore attestations |
+| Release substitution | SPDX SBOM, Sigstore/GitHub attestations |
 | Accidental document disclosure | No telemetry/runtime network; synthetic fixtures and issue policy |
 
 ## Out of scope
