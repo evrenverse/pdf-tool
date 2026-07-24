@@ -5,6 +5,8 @@ Versioning and keeps an [Unreleased] section.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-24
+
 - Prepare the independent public release.
 - Add an Agent Skill and Codex plugin manifest.
 - Use a current, maintained PDF dependency stack.
@@ -20,4 +22,5 @@ Versioning and keeps an [Unreleased] section.
 - Add architecture, threat-model, compatibility, release, support, governance,
   and public-publishing documentation.
 
-[Unreleased]: https://github.com/evrenverse/pdf-tool/commits/main
+[Unreleased]: https://github.com/evrenverse/pdf-tool/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/evrenverse/pdf-tool/releases/tag/v0.1.0
