@@ -4,9 +4,9 @@ Issues and focused pull requests are welcome.
 
 ## Development
 
-1. Install Python 3.12 or newer and uv. `make check` also needs Poppler
-   (`pdftoppm` on `PATH`, package `poppler-utils`); the page-rendering tests
-   fail without it.
+1. Install Python 3.12 or newer and uv. Install Poppler (`pdftoppm` on `PATH`,
+   package `poppler-utils`) to exercise page rendering; those tests skip
+   without it.
 2. Create a branch and add tests for behavior changes.
 3. Run the same local gate used by CI:
 

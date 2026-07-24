@@ -73,7 +73,9 @@ def atomic_output(path: str | Path) -> Iterator[Path]:
         yield tmp_path
         # Writers have closed the file when control returns. Flush the bytes to
         # disk before publishing the new name, and preserve existing mode bits.
-        sync_fd = os.open(tmp_path, os.O_RDONLY)
+        # Windows rejects fsync on a read-only handle with EBADF, so open the
+        # file for writing even though only its flush is needed.
+        sync_fd = os.open(tmp_path, os.O_RDWR)
         try:
             os.fsync(sync_fd)
         finally:

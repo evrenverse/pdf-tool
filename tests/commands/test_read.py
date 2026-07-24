@@ -1,6 +1,7 @@
 """Tests for pdf-tool read command."""
 
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -12,6 +13,12 @@ from typer.testing import CliRunner
 from pdf_tool.cli import app
 
 runner = CliRunner()
+
+# Page rendering shells out to Poppler, an optional dependency. Skip rather
+# than fail where it is absent, so a plain checkout still runs the suite.
+needs_poppler = pytest.mark.skipif(
+    shutil.which("pdftoppm") is None, reason="Poppler (pdftoppm) not installed"
+)
 
 
 @pytest.fixture
@@ -162,6 +169,7 @@ def test_read_tables_no_tables(simple_pdf):
 # --- Batch image rendering tests ---
 
 
+@needs_poppler
 def test_read_image_batch(simple_pdf, tmp_path):
     """Render all pages of a multi-page PDF to a directory."""
     output_dir = tmp_path / "pages"
@@ -175,6 +183,7 @@ def test_read_image_batch(simple_pdf, tmp_path):
     assert "Rendered 2 pages" in result.output
 
 
+@needs_poppler
 def test_read_image_batch_multipage(multipage_pdf, tmp_path):
     """Render all 5 pages of a multi-page PDF to a directory."""
     output_dir = tmp_path / "pages"
@@ -328,6 +337,7 @@ def test_read_pages_whitespace_tolerant(multipage_pdf):
     assert [p["page"] for p in data] == [0, 2]
 
 
+@needs_poppler
 def test_read_pages_image_batch_renders_only_selected(multipage_pdf, tmp_path):
     """--pages filters batch image rendering to the selected pages."""
     output_dir = tmp_path / "pages"
