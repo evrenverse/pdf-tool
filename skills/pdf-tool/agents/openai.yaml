@@ -1,0 +1,4 @@
+interface:
+  display_name: "PDF Tool"
+  short_description: "Inspect, create, and edit PDF files"
+  default_prompt: "Use $pdf-tool to inspect or modify this PDF file safely."

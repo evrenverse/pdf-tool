@@ -1,0 +1,10 @@
+{
+  "id": "locate-edit-verify",
+  "intent": "Locate an invoice total, add an approval overlay, and verify it.",
+  "workflow": ["info", "find", "read", "write", "read"],
+  "success_criteria": [
+    "The label is found without dumping every page.",
+    "The overlay is written to a separate output.",
+    "The final bounded read contains Approved."
+  ]
+}

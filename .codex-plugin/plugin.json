@@ -1,0 +1,28 @@
+{
+  "name": "pdf-tool",
+  "version": "0.1.0",
+  "description": "Teach AI agents to inspect, create, and edit PDFs through a self-describing, bounded CLI.",
+  "author": {
+    "name": "Evrenverse",
+    "url": "https://github.com/evrenverse"
+  },
+  "homepage": "https://github.com/evrenverse/pdf-tool#readme",
+  "repository": "https://github.com/evrenverse/pdf-tool",
+  "license": "MIT",
+  "keywords": ["pdf", "cli", "automation", "agent-skill"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PDF Tool",
+    "shortDescription": "Inspect, create, and edit PDF files",
+    "longDescription": "A focused Agent Skill for a versioned agent contract, bounded PDF inspection, structured output, and transactional edits.",
+    "developerName": "Evrenverse",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/evrenverse/pdf-tool",
+    "defaultPrompt": [
+      "Inspect this PDF and summarize its structure.",
+      "Fill these PDF form fields and verify the result.",
+      "Apply these PDF edits as one safe transaction."
+    ]
+  }
+}
