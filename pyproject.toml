@@ -24,8 +24,8 @@ dependencies = [
     "pdfplumber>=0.11.10",
     "pypdf>=6.14.2",
     "reportlab>=5.0.0",
-    "pypdfform>=5.5.2",
-    "pyhanko[image-support]>=0.35.2",
+    "pypdfform>=5.5.4",
+    "pyhanko[image-support]>=0.36.2",
     "pillow>=12.3.0",
     "pdf2image>=1.17.0",
 ]
@@ -99,10 +99,10 @@ warn_unused_ignores = true
 [dependency-groups]
 dev = [
     "build>=1.4",
-    "hypothesis>=6,<7",
+    "hypothesis>=6.164.0,<7",
     "mypy>=2.3,<3",
     "pip-audit>=2.10",
     "pytest>=9.0",
     "pytest-cov>=7.1",
-    "ruff>=0.15",
+    "ruff>=0.16.1",
 ]
