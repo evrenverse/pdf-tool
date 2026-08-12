@@ -28,6 +28,9 @@ dependencies = [
     "pyhanko[image-support]>=0.35.2",
     "pillow>=12.3.0",
     "pdf2image>=1.17.0",
+    # Not imported directly — a security floor. pdfminer-six, pyhanko and
+    # pypdfform all pull it in, and 49.0.0 carries PYSEC-2026-3552.
+    "cryptography>=50.0.0",
 ]
 
 [project.urls]
