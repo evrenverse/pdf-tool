@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/social-preview.png" alt="pdf-tool — agent-friendly PDF automation" width="100%">
+</p>
+
 # pdf-tool
 
 [![CI](https://github.com/evrenverse/pdf-tool/actions/workflows/ci.yml/badge.svg)](https://github.com/evrenverse/pdf-tool/actions/workflows/ci.yml)
