@@ -5,6 +5,9 @@ Versioning and keeps an [Unreleased] section.
 
 ## [Unreleased]
 
+- Raise the `pypdf` security floor to 6.16.1 and lock 6.16.2 to address
+  CVE-2026-84309, CVE-2026-84310, and CVE-2026-84311.
+
 ## [0.1.0] - 2026-07-24
 
 - Prepare the independent public release.
